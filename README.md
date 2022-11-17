@@ -1,12 +1,12 @@
 # Simple application for search Movies or TV Series
 
-[Live preview](https://movie-app-v-3.netlify.app/auth)
+[Live preview](https://movie-app-v-3.netlify.app/)
 
 ### Features
 
 - [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/)
 
-- [Tailwind CSS](https://tailwindcss.com/)
+- [Tailwind CSS](https://tailwindcss.com/) 
 
 - [Pinia](https://pinia.vuejs.org/)
 
