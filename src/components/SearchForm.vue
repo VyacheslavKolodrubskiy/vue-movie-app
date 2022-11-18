@@ -15,7 +15,7 @@
           alt="Search"
           class="absolute top-4 left-5"
           height="24"
-          :src="getImageDynamically('icons/search.svg')"
+          src="../assets/images/icons/search.svg"
           width="24"
         >
       </div>
@@ -29,7 +29,6 @@
 
 <script setup lang="ts">
 import { useMovieFilters } from '~/stores'
-import { getImageDynamically } from '~/utils'
 
 const emit = defineEmits(['submit'])
 const store = useMovieFilters()

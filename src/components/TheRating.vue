@@ -5,7 +5,7 @@
     <img
       alt="Star"
       height="16"
-      :src="getImageDynamically('icons/star.svg')"
+      src="../assets/images/icons/star.svg"
       width="16"
     >
     <p class="text-[#ffad49]">
@@ -15,8 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { getImageDynamically } from '~/utils'
-
 const props = defineProps<{
   count: number
 }>()

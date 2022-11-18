@@ -6,7 +6,7 @@
     <img
       alt="Arrow left"
       height="24"
-      :src="getImageDynamically('icons/arrow-left.svg')"
+      src="../assets/images/icons/arrow-left.svg"
       width="24"
     >
     <span class="text-white">Back</span>
@@ -106,7 +106,6 @@
 <script setup lang="ts">
 import { useAxios } from '~/composables'
 import type { Person } from '~/interfaces'
-import { getImageDynamically } from '~/utils'
 
 const { params } = useRoute()
 const actor = ref<Person | null>(null)

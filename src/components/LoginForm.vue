@@ -28,7 +28,7 @@
         alt="Email"
         class="absolute top-4 left-5"
         height="24"
-        :src="getImageDynamically('icons/email.svg')"
+        src="../assets/images/icons/email.svg"
         width="24"
       >
     </div>
@@ -53,7 +53,7 @@
         alt="Password key"
         class="absolute top-4 left-5"
         height="24"
-        :src="getImageDynamically('icons/password.svg')"
+        src="../assets/images/icons/password.svg"
         width="24"
       >
 
@@ -78,7 +78,8 @@
 <script setup lang="ts">
 import { string } from 'yup'
 import { useField, useForm } from 'vee-validate'
-import { getImageDynamically } from '../utils/getImageDynamically'
+import eyeOff from '../assets/images/icons/eye-off.svg'
+import eyeOn from '../assets/images/icons/eye-on.svg'
 import { PASSWORD_MIN_LENGTH } from '~/constants'
 
 const emit = defineEmits(['submit'])
@@ -89,8 +90,8 @@ const isPasswordShown = ref(false)
 const inputType = computed(() => (isPasswordShown.value ? 'text' : 'password'))
 const currentIcon = computed(() => {
   const iconAttrs = !isPasswordShown.value
-    ? { alt: 'Eye password off', src: getImageDynamically('icons/eye-off.svg') }
-    : { alt: 'Eye password on', src: getImageDynamically('icons/eye-on.svg') }
+    ? { alt: 'Eye password off', src: eyeOff }
+    : { alt: 'Eye password on', src: eyeOn }
 
   return iconAttrs
 })

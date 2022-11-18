@@ -6,7 +6,7 @@
     <img
       alt="Logout"
       height="24"
-      :src="getImageDynamically('icons/logout.svg')"
+      src="../assets/images/icons/logout.svg"
       width="24"
     >
     <span class="font-semibold text-white"> Logout </span>
@@ -17,7 +17,6 @@
 import { useMovieFilters } from '~/stores/useMovieFilters'
 import { Pages } from '~/enums'
 import { auth } from '~/firebase'
-import { getImageDynamically } from '~/utils'
 
 const router = useRouter()
 const movieFiltersStore = useMovieFilters()

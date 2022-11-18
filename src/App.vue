@@ -12,7 +12,7 @@
         alt="Arrow up"
         class="transition duration-300 group-hover:opacity-50"
         height="24"
-        :src="getImageDynamically('icons/arrow-up.svg')"
+        src="./assets/images/icons/arrow-up.svg"
         width="24"
       >
     </button>
@@ -31,7 +31,6 @@
 <script setup lang="ts">
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase/index'
-import { getImageDynamically } from './utils'
 
 const isLoggedIn = ref(false)
 const isArrowUpShown = ref(false)

@@ -2,14 +2,14 @@
   <div class="flex justify-between lg:flex-col lg:items-center">
     <picture>
       <source
-        :srcset="getImageDynamically('auth-image.webp')"
+        srcset="../assets/images/auth-image.webp"
         type="image/webp"
       >
       <img
         alt="Authorization"
         class="object-cover"
         height="584"
-        :src="getImageDynamically('auth-image.png')"
+        src="../assets/images/auth-image.png"
         width="486"
       >
     </picture>
@@ -23,7 +23,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Pages } from '~/enums'
 import { auth } from '~/firebase'
-import { getImageDynamically, serverErrorHandler } from '~/utils'
+import { serverErrorHandler } from '~/utils'
 import { useNotification } from '~/composables'
 
 interface FormFields {

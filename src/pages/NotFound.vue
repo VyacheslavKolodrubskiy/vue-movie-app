@@ -2,14 +2,14 @@
   <div class="mx-auto max-w-[588px] text-center">
     <picture>
       <source
-        :srcset="getImageDynamically('not-found.webp')"
+        srcset="../assets/images/not-found.webp"
         type="image/webp"
       >
       <img
         alt="Not Found"
         class="mx-auto mb-10"
         height="320"
-        :src="getImageDynamically('not-found.png')"
+        src="../assets/images/not-found.png"
         width="400"
       >
     </picture>
@@ -30,6 +30,5 @@
 
 <script setup lang="ts">
 import { Pages } from '~/enums'
-import { getImageDynamically } from '~/utils'
 </script>
 
