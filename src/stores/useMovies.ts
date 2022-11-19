@@ -10,7 +10,7 @@ interface State {
   movies: Movie[]
 }
 
-export const useMovie = defineStore('movies', {
+export const useMovies = defineStore('movies', {
   state: (): State => ({
     movies: [],
   }),

@@ -48,14 +48,14 @@
 </template>
 
 <script setup lang="ts">
-import { useMovie, useMovieFilters } from '~/stores'
+import { useMovieFilters, useMovies } from '~/stores'
 
 interface State {
   isSearchFormSubmitted: boolean
   categories: string[]
 }
 
-const moviesStore = useMovie()
+const moviesStore = useMovies()
 const movieFiltersStore = useMovieFilters()
 
 const state = reactive<State>({
