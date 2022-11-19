@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-import { string } from 'yup'
+import { object, string } from 'yup'
 import { useField, useForm } from 'vee-validate'
 import eyeOff from '../assets/images/icons/eye-off.svg'
 import eyeOn from '../assets/images/icons/eye-on.svg'
@@ -84,16 +84,30 @@ import { PASSWORD_MIN_LENGTH } from '~/constants'
 
 const emit = defineEmits(['submit'])
 
-const { handleSubmit } = useForm()
+const validationSchema = object({
+  email: string()
+    .trim()
+    .required('This field must not be empty')
+    .email('Email is incorrect'),
+  password: string()
+    .trim()
+    .required('This field must not be empty')
+    .min(
+      PASSWORD_MIN_LENGTH,
+      `Length cannot be less than ${PASSWORD_MIN_LENGTH} characters`,
+    ),
+})
+
+const { handleSubmit } = useForm({
+  validationSchema,
+})
 
 const isPasswordShown = ref(false)
 const inputType = computed(() => (isPasswordShown.value ? 'text' : 'password'))
 const currentIcon = computed(() => {
-  const iconAttrs = !isPasswordShown.value
+  return !isPasswordShown.value
     ? { alt: 'Eye password off', src: eyeOff }
     : { alt: 'Eye password on', src: eyeOn }
-
-  return iconAttrs
 })
 
 const onSubmit = handleSubmit((values) => {
@@ -104,26 +118,11 @@ const {
   value: email,
   errorMessage: emailError,
   handleBlur: emailBlur,
-} = useField(
-  'email',
-  string()
-    .trim()
-    .required('This field must not be empty')
-    .email('Email is incorrect'),
-)
+} = useField('email')
 
 const {
   value: password,
   errorMessage: passwordError,
   handleBlur: passwordBlur,
-} = useField(
-  'password',
-  string()
-    .trim()
-    .required('This field must not be empty')
-    .min(
-      PASSWORD_MIN_LENGTH,
-      `Length cannot be less than ${PASSWORD_MIN_LENGTH} characters`,
-    ),
-)
+} = useField('password')
 </script>
