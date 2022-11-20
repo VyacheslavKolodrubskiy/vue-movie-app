@@ -1,11 +1,10 @@
 <template>
   <RouterLink :to="{ name: Pages.Home }">
-    <img
-      alt="Logo"
+    <BaseIcon
       height="40"
-      src="../assets/images/icons/logo.svg"
+      name="logo"
       width="40"
-    >
+    />
   </RouterLink>
 </template>
 

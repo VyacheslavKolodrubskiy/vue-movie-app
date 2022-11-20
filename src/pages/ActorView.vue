@@ -3,11 +3,10 @@
     class="mb-5 flex items-center space-x-2 transition duration-300 hover:opacity-50"
     @click="$router.back()"
   >
-    <img
-      alt="Arrow left"
-      height="24"
-      src="../assets/images/icons/arrow-left.svg"
-      width="24"
+    <BaseIcon
+      name="arrow-left"
+    />
+
     >
     <span class="text-white">Back</span>
   </button>

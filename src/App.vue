@@ -8,13 +8,10 @@
       type="button"
       @click="handleClick"
     >
-      <img
-        alt="Arrow up"
+      <BaseIcon
         class="transition duration-300 group-hover:opacity-50"
-        height="24"
-        src="./assets/images/icons/arrow-up.svg"
-        width="24"
-      >
+        name="arrow-up"
+      />
     </button>
 
     <TheHeader v-if="isLoggedIn" />
@@ -31,6 +28,7 @@
 <script setup lang="ts">
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase/index'
+import BaseIcon from './components/BaseIcon.vue'
 
 const isLoggedIn = ref(false)
 const isArrowUpShown = ref(false)

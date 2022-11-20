@@ -11,13 +11,10 @@
           type="search"
         />
 
-        <img
-          alt="Search"
+        <BaseIcon
           class="absolute top-4 left-5"
-          height="24"
-          src="../assets/images/icons/search.svg"
-          width="24"
-        >
+          name="search"
+        />
       </div>
 
       <BaseButton type="submit">

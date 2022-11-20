@@ -24,13 +24,10 @@
         class="text-red-500"
       >{{ emailError }}</small>
 
-      <img
-        alt="Email"
+      <BaseIcon
         class="absolute top-4 left-5"
-        height="24"
-        src="../assets/images/icons/email.svg"
-        width="24"
-      >
+        name="email"
+      />
     </div>
 
     <div class="relative">
@@ -49,21 +46,16 @@
         class="text-red-500"
       >{{ passwordError }}</small>
 
-      <img
-        alt="Password key"
+      <BaseIcon
         class="absolute top-4 left-5"
-        height="24"
-        src="../assets/images/icons/password.svg"
-        width="24"
-      >
+        name="password"
+      />
 
-      <img
+      <BaseIcon
         class="absolute top-4 right-4 cursor-pointer"
-        height="24"
-        width="24"
-        v-bind="currentIcon"
+        :name="currentPasswordIcon"
         @click="isPasswordShown = !isPasswordShown"
-      >
+      />
     </div>
 
     <BaseButton
@@ -78,8 +70,6 @@
 <script setup lang="ts">
 import { object, string } from 'yup'
 import { useField, useForm } from 'vee-validate'
-import eyeOff from '../assets/images/icons/eye-off.svg'
-import eyeOn from '../assets/images/icons/eye-on.svg'
 import { PASSWORD_MIN_LENGTH } from '~/constants'
 
 const emit = defineEmits(['submit'])
@@ -104,10 +94,10 @@ const { handleSubmit } = useForm({
 
 const isPasswordShown = ref(false)
 const inputType = computed(() => (isPasswordShown.value ? 'text' : 'password'))
-const currentIcon = computed(() => {
+const currentPasswordIcon = computed(() => {
   return !isPasswordShown.value
-    ? { alt: 'Eye password off', src: eyeOff }
-    : { alt: 'Eye password on', src: eyeOn }
+    ? 'eye-off'
+    : 'eye-on'
 })
 
 const onSubmit = handleSubmit((values) => {

@@ -3,12 +3,10 @@
     class="flex cursor-pointer items-center space-x-2 opacity-50 transition duration-300 hover:opacity-100"
     @click="handleClick"
   >
-    <img
-      alt="Logout"
-      height="24"
-      src="../assets/images/icons/logout.svg"
-      width="24"
-    >
+    <BaseIcon
+      name="logout"
+    />
+
     <span class="font-semibold text-white"> Logout </span>
   </div>
 </template>
