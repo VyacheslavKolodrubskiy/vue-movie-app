@@ -5,7 +5,7 @@
     <div
       v-for="tab in tabs"
       :key="tab"
-      class="shrink-0 cursor-pointer rounded-lg py-2 px-8 font-semibold text-[#ebe9fe] transition duration-300 hover:bg-accent"
+      class="shrink-0 cursor-pointer rounded-lg py-2 px-8 font-semibold text-[#ebe9fe] duration-300 hover:bg-accent"
       :class="{ 'bg-accent': currentTab === tab }"
       @click="emit('click', tab)"
     >
@@ -16,9 +16,9 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  tabs: string[]
-  currentTab: string
-}>()
+  tabs: string[];
+  currentTab: string;
+}>();
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(["click"]);
 </script>

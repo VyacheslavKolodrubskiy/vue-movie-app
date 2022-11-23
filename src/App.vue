@@ -9,7 +9,7 @@
       @click="handleClick"
     >
       <BaseIcon
-        class="transition duration-300 group-hover:opacity-50"
+        class="duration-300 group-hover:opacity-50"
         name="arrow-up"
       />
     </button>

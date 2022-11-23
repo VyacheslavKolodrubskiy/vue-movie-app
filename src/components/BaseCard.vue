@@ -1,6 +1,6 @@
 <template>
   <div
-    class="rounded-xl h-full bg-[#20283e]/80 px-2 pt-2 pb-4 backdrop-blur-[80px] transition duration-300 hover:shadow-xl hover:shadow-accent"
+    class="rounded-xl h-full bg-[#20283e]/80 px-2 pt-2 pb-4 backdrop-blur-[80px] duration-300 hover:shadow-xl hover:shadow-accent"
   >
     <slot />
 
