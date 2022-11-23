@@ -22,9 +22,9 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  page: number;
-  totalPage: number;
-}>();
+  page: number
+  totalPage: number
+}>()
 
-const emit = defineEmits(["prev", "next"]);
+const emit = defineEmits(['prev', 'next'])
 </script>

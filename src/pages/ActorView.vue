@@ -9,7 +9,10 @@
     <span class="text-white">Back</span>
   </button>
 
-  <div v-if="actor" class="flex lg:flex-col lg:space-y-10 lg:space-x-0">
+  <div
+    v-if="actor"
+    class="flex lg:flex-col lg:space-y-10 lg:space-x-0"
+  >
     <BaseImage
       :alt="`${actor.name} picture`"
       class="mr-20 h-[720px] rounded-3xl lg:h-auto"
@@ -46,26 +49,46 @@
       <TheRating :count="actor.popularity" />
 
       <div class="grid grid-cols-2 gap-6">
-        <div v-if="age" class="space-y-2">
-          <p class="text-secondary">Age:</p>
+        <div
+          v-if="age"
+          class="space-y-2"
+        >
+          <p class="text-secondary">
+            Age:
+          </p>
           <p class="text-xl text-primary">
             {{ age }}
           </p>
         </div>
-        <div v-if="actor.birthday" class="space-y-2">
-          <p class="text-secondary">Birthday:</p>
+        <div
+          v-if="actor.birthday"
+          class="space-y-2"
+        >
+          <p class="text-secondary">
+            Birthday:
+          </p>
           <p class="text-xl text-primary">
             {{ actor.birthday }}
           </p>
         </div>
-        <div v-if="actor.deathday" class="space-y-2">
-          <p class="text-secondary">Death day:</p>
+        <div
+          v-if="actor.deathday"
+          class="space-y-2"
+        >
+          <p class="text-secondary">
+            Death day:
+          </p>
           <p class="text-xl text-primary">
             {{ actor.deathday }}
           </p>
         </div>
-        <div v-if="actor.place_of_birth" class="col-span-2 space-y-2">
-          <p class="text-secondary">Place of birth:</p>
+        <div
+          v-if="actor.place_of_birth"
+          class="col-span-2 space-y-2"
+        >
+          <p class="text-secondary">
+            Place of birth:
+          </p>
           <p class="text-xl text-primary">
             {{ actor.place_of_birth }}
           </p>
@@ -78,37 +101,37 @@
 </template>
 
 <script setup lang="ts">
-import { useAxios } from "~/composables";
-import type { Person } from "~/interfaces";
+import { useAxios } from '~/composables'
+import type { Person } from '~/interfaces'
 
-const { params } = useRoute();
-const actor = ref<Person | null>(null);
-const readMoreActivated = ref(false);
+const { params } = useRoute()
+const actor = ref<Person | null>(null)
+const readMoreActivated = ref(false)
 
 const readMoreText = computed(() => {
-  return readMoreActivated.value ? "hide" : "read more";
-});
+  return readMoreActivated.value ? 'hide' : 'read more'
+})
 
 const isReadMoreShown = computed(() => {
-  return actor.value && actor.value?.biography.length >= 500;
-});
+  return actor.value && actor.value?.biography.length >= 500
+})
 
 const biography = computed(() => {
-  return actor.value &&
-    actor.value?.biography.length >= 500 &&
-    !readMoreActivated.value
+  return actor.value
+    && actor.value?.biography.length >= 500
+    && !readMoreActivated.value
     ? `${actor.value?.biography.slice(0, 500)}...`
-    : actor.value?.biography;
-});
+    : actor.value?.biography
+})
 
 const age = computed(() => {
   return (
     actor.value && new Date().getFullYear() - +actor.value.birthday.slice(0, 4)
-  );
+  )
 });
 
 (async function fetchActor() {
-  const data = await useAxios(`/person/${params.id}`);
-  actor.value = data;
-})();
+  const data = await useAxios(`/person/${params.id}`)
+  actor.value = data
+})()
 </script>
