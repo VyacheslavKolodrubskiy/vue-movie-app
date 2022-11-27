@@ -4,8 +4,6 @@
     @click="$router.back()"
   >
     <BaseIcon name="arrow-left" />
-
-    >
     <span class="text-white">Back</span>
   </button>
 
