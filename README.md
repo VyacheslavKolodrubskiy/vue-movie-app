@@ -1,4 +1,4 @@
-# Simple application for search Movies or TV Series
+# Progressive web application for search Movies or TV Series
 
 [Live preview](https://movie-app-v-3.netlify.app/)
 
@@ -17,6 +17,8 @@
 - [eslint](https://eslint.org/)
 
 - [husky](https://typicode.github.io/husky/#/)
+
+- [PWA](https://vite-pwa-org.netlify.app/)
 
 - [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
