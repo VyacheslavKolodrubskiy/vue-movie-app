@@ -1,4 +1,4 @@
-# Progressive web application for search Movies or TV Series
+# Progressive Web Application for search Movies or TV Series
 
 [Live preview](https://movie-app-v-3.netlify.app/)
 
