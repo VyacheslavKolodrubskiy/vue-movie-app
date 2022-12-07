@@ -14,7 +14,7 @@ specifiers:
   husky: ^8.0.2
   nprogress: ^0.2.0
   pinia: ^2.0.23
-  pinia-plugin-persistedstate: ^2.3.0
+  pinia-plugin-persistedstate: ^3.0.0
   postcss: ^8.4.18
   tailwindcss: ^3.2.1
   typescript: ^4.6.4
@@ -33,7 +33,7 @@ dependencies:
   firebase: 9.13.0
   nprogress: 0.2.0
   pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
-  pinia-plugin-persistedstate: 2.3.0_pinia@2.0.23
+  pinia-plugin-persistedstate: 3.0.1_pinia@2.0.23
   vee-validate: 4.7.2_vue@3.2.41
   vue: 3.2.41
   vue-router: 4.1.6_vue@3.2.41
@@ -5175,13 +5175,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /pinia-plugin-persistedstate/2.3.0_pinia@2.0.23:
-    resolution: {integrity: sha512-K7vzt68Z3lbMDjb23Ki2vgHVBP2QFvjl7WNwzIwqY/DAkhSt8mi/z6bN/cXTst7fJjXWF0lC9NyxFKHfxWehuw==}
+  /pinia-plugin-persistedstate/3.0.1_pinia@2.0.23:
+    resolution: {integrity: sha512-WRNWtR4v8StJqBQH+Qiz88SGnlr4wvEyh7wtA+fYEVLoIOnpZ0v4FICvUcC8eUkAIvQL3n6/Ew2yryw7okazvA==}
     peerDependencies:
       pinia: ^2.0.0
-    peerDependenciesMeta:
-      pinia:
-        optional: true
     dependencies:
       pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
     dev: false
