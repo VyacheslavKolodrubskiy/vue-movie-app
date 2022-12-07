@@ -38,6 +38,6 @@
     "unplugin-vue-components": "^0.22.8",
     "vite": "^3.1.0",
     "vite-plugin-pwa": "^0.13.3",
-    "vue-tsc": "^0.40.4"
+    "vue-tsc": "^1.0.0"
   }
 }
