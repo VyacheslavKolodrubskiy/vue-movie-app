@@ -9,18 +9,19 @@
   >
 
   <slot
-    v-if="!imageUploaded || !src"
+    v-if="!imageUploaded || !src && $slots.skeleton"
     name="skeleton"
   />
 </template>
 
 <script setup lang="ts">
 import { IMAGE_URL } from '~/constants'
+import type { ImageSizes } from '~/types'
 
 const props = withDefaults(defineProps<{
   src: string
   alt: string
-  imageSize?: string
+  imageSize?: ImageSizes
 }>(), {
   imageSize: 'w500',
 })

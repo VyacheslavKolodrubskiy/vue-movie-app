@@ -3,8 +3,8 @@
     <BaseNotification />
 
     <button
-      v-if="isArrowUpShown"
-      class="group fixed bottom-10 right-5 z-50 cursor-pointer rounded-lg bg-[#20283e]/80 p-2"
+      class="group fixed bottom-10 right-5 z-50 cursor-pointer rounded-lg bg-[#20283e]/80 p-2 duration-300"
+      :class="{ 'invisible opacity-0 translate-y-10': !isArrowUpShown }"
       type="button"
       @click="handleClick"
     >
@@ -27,8 +27,7 @@
 
 <script setup lang="ts">
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from './firebase/index'
-import BaseIcon from './components/BaseIcon.vue'
+import { auth } from './firebase'
 
 const isLoggedIn = ref(false)
 const isArrowUpShown = ref(false)

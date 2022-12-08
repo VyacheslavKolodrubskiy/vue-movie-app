@@ -1,9 +1,12 @@
 <template>
   <div
-    class="flex cursor-pointer items-center space-x-2 opacity-50 duration-300 hover:opacity-100"
+    class="flex cursor-pointer group items-center space-x-2 duration-300 hover:opacity-50"
     @click="handleClick"
   >
-    <BaseIcon name="logout" />
+    <BaseIcon
+      class="group-hover:translate-x-1 duration-300"
+      name="logout"
+    />
 
     <span class="font-semibold text-white"> Logout </span>
   </div>

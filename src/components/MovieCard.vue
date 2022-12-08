@@ -1,25 +1,28 @@
 <template>
   <RouterLink
     v-if="movie.poster_path"
+    class="group"
     :to="{
       name: Pages.MovieView,
       params: { id: movie.id, type },
     }"
   >
     <BaseCard>
-      <BaseImage
-        :alt="`${title} picture`"
-        class="w-full min-h-[400px] rounded-lg"
-        height="400"
-        :src="movie.poster_path"
-        width="266"
-      >
-        <template #skeleton>
-          <div
-            class="h-[387px] animate-pulse rounded-lg bg-gray-500 lg:h-[250px] md:h-[387px]"
-          />
-        </template>
-      </BaseImage>
+      <div class="overflow-hidden rounded-lg">
+        <BaseImage
+          :alt="`${title} picture`"
+          class="w-full duration-300 group-hover:scale-105"
+          height="400"
+          :src="movie.poster_path"
+          width="266"
+        >
+          <template #skeleton>
+            <div
+              class="h-[387px] animate-pulse rounded-lg bg-gray-500 lg:h-[250px] md:h-[387px]"
+            />
+          </template>
+        </BaseImage>
+      </div>
 
       <template #title>
         {{ title }}
@@ -32,7 +35,7 @@
 import { MEDIA_TYPES } from '~/constants'
 import { Pages } from '~/enums'
 import { useMovieFilters } from '~/stores'
-import type { Movie } from '~/interfaces'
+import type { Movie } from '~/interface.movie'
 
 const props = defineProps<{
   movie: Movie

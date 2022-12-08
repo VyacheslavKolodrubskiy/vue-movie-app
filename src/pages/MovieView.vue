@@ -1,7 +1,7 @@
 <template>
   <div
-    v-if="movie"
-    :key="movie.id"
+    v-if="state.movie"
+    :key="state.movie.id"
     class="space-y-10"
   >
     <div
@@ -27,11 +27,11 @@
     </div>
 
     <BaseImage
-      :alt="`${movie.name} picture`"
+      :alt="`${state.movie.name} picture`"
       class="rounded-[40px]"
       height="480"
       image-size="original"
-      :src="movie.backdrop_path"
+      :src="state.movie.backdrop_path"
       width="1200"
     >
       <template #skeleton>
@@ -44,7 +44,7 @@
         :alt="`${title} picture`"
         class="h-[720px] rounded-3xl lg:hidden mr-20"
         height="720"
-        :src="movie.poster_path"
+        :src="state.movie.poster_path"
         width="480"
       >
         <template #skeleton>
@@ -59,10 +59,10 @@
           {{ tagline }}
         </h2>
         <p class="text-xl leading-8 text-secondary">
-          {{ movie.overview }}
+          {{ state.movie.overview }}
         </p>
 
-        <TheRating :count="movie.vote_average" />
+        <TheRating :count="state.movie.vote_average" />
 
         <div class="grid grid-cols-2 gap-6">
           <MovieCharacteristic
@@ -79,19 +79,20 @@
     </div>
 
     <YoutubeVideo
-      :movie="movie"
+      :movie="state.movie"
       :title="title"
     />
 
-    <h4 class="text-primary font-bold text-4xl">
+    <AppTitle>
       Similar {{ type }}
-    </h4>
+    </AppTitle>
+
     <div
-      class="grid grid-cols-4 gap-6 md:grid-cols-2 lg:grid-cols-3 xs:grid-cols-1"
+      class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
     >
-      <template v-if="movies.length">
+      <template v-if="state.movies.length">
         <MovieCard
-          v-for="movie in movies"
+          v-for="movie in state.movies"
           :key="movie.id"
           :movie="movie"
         />
@@ -103,15 +104,15 @@
       />
     </div>
 
-    <template v-if="actors.length">
-      <h4 class="text-primary font-bold text-4xl">
+    <template v-if="state.actors.length">
+      <AppTitle>
         Actors
-      </h4>
+      </AppTitle>
       <div
-        class="grid grid-cols-4 gap-6 md:grid-cols-2 lg:grid-cols-3 xs:grid-cols-1"
+        class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
       >
         <ActorCard
-          v-for="(actor, index) in actors"
+          v-for="(actor, index) in state.actors"
           :key="index"
           :actor="actor"
         />
@@ -126,16 +127,26 @@
 import { useAxios } from '~/composables'
 import { MEDIA_TYPES } from '~/constants'
 import { Pages } from '~/enums'
-import type { Actor, Movie } from '~/interfaces'
+import type { Actor } from '~/interface.actor'
+import type { Movie } from '~/interface.movie'
+
+interface State {
+  movie: Movie | null
+  movies: Movie[]
+  actors: Actor[]
+}
 
 const route = useRoute()
-const movie = ref<Movie | null>(null)
-const movies = ref<Movie[]>([])
-const actors = ref<Actor[]>([])
+const state = reactive<State>({
+  movie: null,
+  movies: [],
+  actors: [],
+
+})
 
 const genres = computed(() => {
   return (
-    movie.value?.genres
+    state.movie?.genres
       .map(({ name }) => {
         return name
       })
@@ -150,19 +161,19 @@ const type = computed(() => {
 })
 
 const runtime = computed(() => {
-  return movie.value?.runtime ? `${movie.value?.runtime} min` : null
+  return state.movie?.runtime ? `${state.movie?.runtime} min` : null
 })
 
 const isInProduction = computed(() => {
-  return movie.value?.in_production ? 'Yes' : 'No'
+  return state.movie?.in_production ? 'Yes' : 'No'
 })
 
 const title = computed(() => {
-  return movie.value?.title || movie.value?.name
+  return state.movie?.title || state.movie?.name
 })
 
 const tagline = computed(() => {
-  return movie.value?.tagline || title.value
+  return state.movie?.tagline || title.value
 })
 
 const characteristics = computed<Readonly<Record<string, any>[]>>(() => {
@@ -177,29 +188,29 @@ const characteristics = computed<Readonly<Record<string, any>[]>>(() => {
     },
     {
       title: 'Status',
-      description: movie.value?.status,
+      description: state.movie?.status,
     },
 
     {
       title: 'Release Date',
-      description: movie.value?.release_date,
+      description: state.movie?.release_date,
     },
     {
       title: 'Episodes',
-      description: movie.value?.number_of_episodes,
+      description: state.movie?.number_of_episodes,
     },
     {
       title: 'First Air Date',
-      description: movie.value?.first_air_date,
+      description: state.movie?.first_air_date,
     },
     {
       title: 'Last Air Date',
-      description: movie.value?.last_air_date,
+      description: state.movie?.last_air_date,
     },
 
     {
       title: 'Seasons',
-      description: movie.value?.number_of_seasons,
+      description: state.movie?.number_of_seasons,
     },
     {
       title: 'In Production',
@@ -214,20 +225,20 @@ const characteristics = computed<Readonly<Record<string, any>[]>>(() => {
 
 async function fetchMovie() {
   const data = await useAxios(`/${route.params.type}/${route.params.id}`)
-  movie.value = data
+  state.movie = data
 }
 
 async function fetchCast() {
   const data = await useAxios(
     `/${route.params.type}/${route.params.id}/credits`,
   )
-  actors.value = data.cast
+  state.actors = data.cast
 }
 async function fetchCollection() {
   const data = await useAxios(
     `/${route.params.type}/${route.params.id}/similar`,
   )
-  movies.value = data.results
+  state.movies = data.results
 }
 
 watch(

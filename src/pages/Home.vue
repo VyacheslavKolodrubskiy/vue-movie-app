@@ -17,13 +17,13 @@
     <div class="space-y-4 xxs:overflow-x-scroll">
       <BaseTabs
         :current-tab="movieFiltersStore.currentCategory"
-        :tabs="state.categories"
+        :tabs="CATEGORIES"
         @click="handleCategoryClick"
       />
     </div>
 
     <div
-      class="grid grid-cols-4 gap-6 md:grid-cols-2 lg:grid-cols-3 xs:grid-cols-1"
+      class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
     >
       <template v-if="moviesStore.movies.length">
         <MovieCard
@@ -48,20 +48,13 @@
 </template>
 
 <script setup lang="ts">
+import { CATEGORIES } from '~/constants'
 import { useMovieFilters, useMovies } from '~/stores'
-
-interface State {
-  isSearchFormSubmitted: boolean
-  categories: string[]
-}
+import type { Categories } from '~/types'
 
 const moviesStore = useMovies()
 const movieFiltersStore = useMovieFilters()
-
-const state = reactive<State>({
-  isSearchFormSubmitted: false,
-  categories: ['All', 'Movies', 'TV Series'],
-})
+const isSearchFormSubmitted = ref(false)
 
 const searchQuery = computed(() => movieFiltersStore.searchQuery)
 
@@ -81,14 +74,14 @@ function handleNextClick() {
   moviesStore.fetchCollection()
 }
 
-function handleCategoryClick(category: string) {
+function handleCategoryClick(category: Categories) {
   movieFiltersStore.setPage(1)
   movieFiltersStore.setCurrentCategory(category)
   moviesStore.fetchCollection()
 }
 
 function handleSubmit() {
-  state.isSearchFormSubmitted = true
+  isSearchFormSubmitted.value = true
   movieFiltersStore.setPage(1)
   moviesStore.fetchCollection()
 }
@@ -99,7 +92,7 @@ watch(
     if (!value) {
       moviesStore.fetchCollection()
       movieFiltersStore.setPage(1)
-      state.isSearchFormSubmitted = false
+      isSearchFormSubmitted.value = false
     }
   },
 )

@@ -4,12 +4,18 @@
   >
     <slot />
 
-    <div class="space-y-1 mt-6 font-semibold">
-      <p class="text-primary">
+    <div class="space-y-1  mt-6 font-semibold">
+      <p
+        v-if="$slots.title"
+        class="text-primary truncate"
+      >
         <slot name="title" />
       </p>
 
-      <p class="text-secondary">
+      <p
+        v-if="$slots.subtitle"
+        class="text-secondary truncate"
+      >
         <slot name="subtitle" />
       </p>
     </div>

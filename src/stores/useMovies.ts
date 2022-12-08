@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { useMovieFilters } from './useMovieFilters'
 import { useAxios } from '~/composables'
 import { MEDIA_TYPES } from '~/constants'
-import type { Movie } from '~/interfaces'
+import type { Movie } from '~/interface.movie'
 
 const movieFiltersStore = useMovieFilters()
 

@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
+import type { Categories } from '~/types'
 
 interface State {
   searchQuery: string
-  currentCategory: string
+  currentCategory: Categories
   page: number
   totalPages: number
 }
@@ -36,7 +37,7 @@ export const useMovieFilters = defineStore('filters', {
     setSearchQuery(payload: string) {
       this.searchQuery = payload
     },
-    setCurrentCategory(payload: string) {
+    setCurrentCategory(payload: Categories) {
       this.currentCategory = payload
     },
   },
