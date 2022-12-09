@@ -33,6 +33,7 @@ module.exports = {
       'PascalCase',
       {
         registeredComponentsOnly: false,
+        ignores: ['component'],
       },
     ],
     'vue/no-template-shadow': 'off',

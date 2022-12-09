@@ -244,9 +244,11 @@ async function fetchCollection() {
 watch(
   () => route.params.id,
   () => {
-    fetchMovie()
-    fetchCast()
-    fetchCollection()
+    if (route.params.type && route.params.id) {
+      fetchMovie()
+      fetchCast()
+      fetchCollection()
+    }
   },
   { immediate: true },
 )

@@ -18,7 +18,14 @@
     <main>
       <section class="py-40">
         <div class="container">
-          <RouterView />
+          <RouterView v-slot="{ Component, route }">
+            <Transition name="slide-fade">
+              <component
+                :is="Component"
+                :key="route.path"
+              />
+            </Transition>
+          </RouterView>
         </div>
       </section>
     </main>
