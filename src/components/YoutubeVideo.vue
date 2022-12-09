@@ -5,6 +5,7 @@
     allowfullscreen
     class="aspect-video w-full rounded-3xl"
     frameborder="0"
+    loading="lazy"
     :src="`https://www.youtube-nocookie.com/embed/${video.key}`"
     :title="`${title} ${video.name}`"
   />

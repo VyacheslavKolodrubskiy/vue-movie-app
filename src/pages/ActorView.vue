@@ -144,13 +144,13 @@ const biography = computed(() => {
   return state.actor
     && state.actor?.biography.length >= 500
     && !state.readMoreActivated
-    ? `${state.actor?.biography.slice(0, 500)}...`
+    ? `${state.actor?.biography?.slice(0, 500)}...`
     : state.actor?.biography
 })
 
 const age = computed(() => {
   return (
-    state.actor && new Date().getFullYear() - +state.actor.birthday.slice(0, 4)
+    state.actor && new Date().getFullYear() - +state.actor?.birthday?.slice(0, 4)
   )
 });
 
