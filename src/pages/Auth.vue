@@ -39,7 +39,9 @@ async function handleSubmit({ email, password }: FormFields) {
     await signInWithEmailAndPassword(auth, email, password)
 
     push({ name: Pages.Home })
-    setMessage('Authorization was successful')
+    setTimeout(() => {
+      setMessage('Authorization was successful')
+    }, 2000)
   }
   catch (error: any) {
     console.error('handleSubmit ~ catch', error)
