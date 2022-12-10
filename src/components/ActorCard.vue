@@ -12,14 +12,14 @@
         <BaseImage
           :alt="`${actor.name} picture`"
           class="w-full h-full duration-300 group-hover:scale-105"
-          height="400"
+          height="253"
           :src="`${IMAGE_URL.w500}${actor.profile_path}`"
-          width="266"
+          width="168"
         >
           <template #skeleton>
             <ImageSkeleton
-              height="400"
-              width="266"
+              height="253"
+              width="168"
             />
           </template>
         </BaseImage>

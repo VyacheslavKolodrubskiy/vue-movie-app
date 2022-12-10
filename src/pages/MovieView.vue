@@ -92,7 +92,7 @@
         Actors
       </AppTitle>
       <div
-        class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
+        class="grid grid-cols-6 gap-3 md:grid-cols-2 lg:grid-cols-4"
       >
         <ActorCard
           v-for="(actor, index) in state.actors"

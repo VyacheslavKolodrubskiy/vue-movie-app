@@ -36,8 +36,11 @@
       <div
         class="bg-gray-500 w-40 rounded-lg h-5"
       />
-      <div class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3">
-        <MovieCardSkeleton :quantity="20" />
+      <div
+        class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
+        :class="{ 'grid-cols-6 lg:grid-cols-4': i === 1 }"
+      >
+        <MovieCardSkeleton :quantity="18" />
       </div>
     </template>
   </div>
