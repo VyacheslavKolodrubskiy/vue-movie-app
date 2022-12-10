@@ -17,8 +17,9 @@
           width="266"
         >
           <template #skeleton>
-            <div
-              class="h-[396px] animate-pulse rounded-lg bg-gray-500 lg:h-[250px] md:h-[396px]"
+            <ImageSkeleton
+              height="400"
+              width="266"
             />
           </template>
         </BaseImage>

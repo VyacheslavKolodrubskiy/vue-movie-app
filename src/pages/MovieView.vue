@@ -39,18 +39,22 @@
       </template>
     </BaseImage>
 
-    <div class="flex lg:flex-col lg:space-y-10 lg:space-x-0">
+    <div class="flex lg:flex-col lg:space-y-10">
       <BaseImage
         :alt="`${title} picture`"
-        class="h-[720px] rounded-3xl lg:hidden mr-20"
+        class="rounded-3xl max-h-[720px] lg:hidden mr-20"
         height="720"
         :src="state.movie.poster_path"
         width="480"
       >
         <template #skeleton>
-          <div
-            class="h-[720px] w-full max-w-[480px] mr-20 animate-pulse rounded-3xl bg-gray-500 lg:hidden"
-          />
+          <div class="mr-20 lg:hidden max-w-[480px] w-full">
+            <ImageSkeleton
+              class="rounded-3xl"
+              height="720"
+              width="480"
+            />
+          </div>
         </template>
       </BaseImage>
 
@@ -129,6 +133,7 @@ import { MEDIA_TYPES } from '~/constants'
 import { Pages } from '~/enums'
 import type { Actor } from '~/interface.actor'
 import type { Movie } from '~/interface.movie'
+import ImageSkeleton from '~/components/ImageSkeleton.vue'
 
 interface State {
   movie: Movie | null

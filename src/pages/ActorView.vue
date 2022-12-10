@@ -5,18 +5,22 @@
   >
     <BackButton />
 
-    <div class="flex lg:flex-col lg:space-y-10 lg:space-x-0">
+    <div class="flex lg:flex-col lg:space-y-10">
       <BaseImage
         :alt="`${state.actor.name} picture`"
-        class="mr-20 h-[720px] rounded-3xl lg:h-auto"
+        class="mr-20 max-h-[720px] rounded-3xl"
         height="720"
         :src="state.actor.profile_path"
         width="480"
       >
         <template #skeleton>
-          <div
-            class="mr-20 h-[720px] w-[480px] shrink-0 animate-pulse rounded-[40px] bg-gray-500 xs:h-[450px] xs:w-full"
-          />
+          <div class="max-w-[480px] w-full mr-20">
+            <ImageSkeleton
+              class="rounded-3xl"
+              height="720"
+              width="480"
+            />
+          </div>
         </template>
       </BaseImage>
 
@@ -29,6 +33,7 @@
           class="space-x-2 text-xl leading-8 text-secondary"
         >
           <span>{{ biography }}</span>
+
           <button
             v-if="isReadMoreShown"
             class="text-white duration-300 hover:text-primary/80"
@@ -117,6 +122,7 @@
 import { useAxios } from '~/composables'
 import type { Movie } from '~/interface.movie'
 import type { Actor } from '~/interface.actor'
+import ImageSkeleton from '~/components/ImageSkeleton.vue'
 
 const { params } = useRoute()
 

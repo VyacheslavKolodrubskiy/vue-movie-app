@@ -17,8 +17,9 @@
           width="266"
         >
           <template #skeleton>
-            <div
-              class="h-[387px] animate-pulse rounded-lg bg-gray-500 lg:h-[250px] md:h-[387px]"
+            <ImageSkeleton
+              height="400"
+              width="266"
             />
           </template>
         </BaseImage>
@@ -32,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import ImageSkeleton from './ImageSkeleton.vue'
 import { MEDIA_TYPES } from '~/constants'
 import { Pages } from '~/enums'
 import { useMovieFilters } from '~/stores'

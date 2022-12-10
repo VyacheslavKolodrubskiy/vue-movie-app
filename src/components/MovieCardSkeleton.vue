@@ -1,10 +1,16 @@
 <template>
-  <img
+  <div
     v-for="q in quantity"
     :key="q"
-    alt="Card skeleton"
-    src="../assets/images/card-skeleton.svg"
+    class="animate-pulse space-y-4 rounded-lg bg-[#20283e]/80 px-2 pt-2 pb-4 backdrop-blur-[80px]"
   >
+    <ImageSkeleton
+      class="rounded-lg animate-none"
+      height="400"
+      width="267"
+    />
+    <div class="h-5 rounded-lg bg-gray-500" />
+  </div>
 </template>
 
 <script setup lang="ts">
