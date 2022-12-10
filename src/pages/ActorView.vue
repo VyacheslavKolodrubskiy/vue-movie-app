@@ -122,7 +122,6 @@
 import { useAxios } from '~/composables'
 import type { Movie } from '~/interface.movie'
 import type { Actor } from '~/interface.actor'
-import ImageSkeleton from '~/components/ImageSkeleton.vue'
 
 const { params } = useRoute()
 

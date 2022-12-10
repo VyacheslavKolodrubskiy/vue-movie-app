@@ -58,12 +58,17 @@ const isSearchFormSubmitted = ref(false)
 
 const searchQuery = computed(() => movieFiltersStore.searchQuery)
 
+function scrollToFirstCardsRow() {
+  window.scrollTo({ top: 450 })
+}
+
 function handlePrevClick() {
   if (movieFiltersStore.page === 1)
     return
 
   movieFiltersStore.decreasePage()
   moviesStore.fetchCollection()
+  scrollToFirstCardsRow()
 }
 
 function handleNextClick() {
@@ -72,6 +77,7 @@ function handleNextClick() {
 
   movieFiltersStore.increasePage()
   moviesStore.fetchCollection()
+  scrollToFirstCardsRow()
 }
 
 function handleCategoryClick(category: Categories) {
