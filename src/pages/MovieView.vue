@@ -87,6 +87,21 @@
       :title="title"
     />
 
+    <template v-if="state.actors.length">
+      <AppTitle>
+        Actors
+      </AppTitle>
+      <div
+        class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
+      >
+        <ActorCard
+          v-for="(actor, index) in state.actors"
+          :key="index"
+          :actor="actor"
+        />
+      </div>
+    </template>
+
     <AppTitle>
       Similar {{ type }}
     </AppTitle>
@@ -107,21 +122,6 @@
         :quantity="20"
       />
     </div>
-
-    <template v-if="state.actors.length">
-      <AppTitle>
-        Actors
-      </AppTitle>
-      <div
-        class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
-      >
-        <ActorCard
-          v-for="(actor, index) in state.actors"
-          :key="index"
-          :actor="actor"
-        />
-      </div>
-    </template>
   </div>
 
   <MovieViewSkeleton v-else />
