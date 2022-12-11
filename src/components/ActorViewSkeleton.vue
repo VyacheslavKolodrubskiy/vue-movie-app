@@ -23,19 +23,30 @@
       </div>
     </div>
 
-    <div class="bg-gray-500 w-40 rounded-lg h-5" />
-    <div class="grid grid-cols-4 gap-3 md:grid-cols-2 xs:grid-cols-1">
+    <div class="grid grid-cols-4 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ImageSkeleton
+        v-for="i in 4"
+        :key="i"
+        class="rounded-lg animate-none"
+        :class="{ 'lg:hidden': i === 4, 'md:hidden': i === 3 }"
+        height="400"
+        width="267"
+      />
+    </div>
+
+    <div class="flex space-x-2">
       <div
-        v-for="q in 8"
-        :key="q"
-        class="space-y-4 rounded-lg bg-[#20283e]/80 px-2 pt-2 pb-4 backdrop-blur-[80px]"
-      >
-        <div
-          class="h-[400px] rounded-lg bg-gray-500 lg:h-[250px] md:h-[400px]"
-        />
-        <div class="h-5 rounded-lg bg-gray-500" />
-        <div class="h-5 w-32 rounded-lg bg-gray-500" />
-      </div>
+        v-for="i in 2"
+        :key="i"
+        class="bg-gray-500 w-14 h-10 rounded-lg"
+      />
+    </div>
+
+    <div class="bg-gray-500 w-40 rounded-lg h-5" />
+
+    <div class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3">
+      <MovieCardSkeleton :quantity="20" />
     </div>
   </div>
 </template>
+
