@@ -10,7 +10,7 @@
     <BaseCard>
       <div class="overflow-hidden rounded-lg">
         <BaseImage
-          :alt="`${title} picture`"
+          :alt="`${title} cover`"
           class="w-full duration-300 group-hover:scale-105"
           height="400"
           :src="movie.poster_path"

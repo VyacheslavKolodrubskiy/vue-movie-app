@@ -27,7 +27,7 @@
     </div>
 
     <BaseImage
-      :alt="`${state.movie.name} picture`"
+      :alt="`${state.movie.name} cover`"
       class="rounded-[40px]"
       height="480"
       image-size="original"
@@ -41,7 +41,7 @@
 
     <div class="flex lg:flex-col lg:space-y-10">
       <BaseImage
-        :alt="`${title} picture`"
+        :alt="`${title} cover`"
         class="rounded-3xl max-h-[720px] lg:hidden mr-20"
         height="720"
         :src="state.movie.poster_path"

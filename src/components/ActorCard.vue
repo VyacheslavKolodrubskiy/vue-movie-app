@@ -10,7 +10,7 @@
     <BaseCard>
       <div class="overflow-hidden rounded-lg">
         <BaseImage
-          :alt="`${actor.name} picture`"
+          :alt="`${actor.name} photography`"
           class="w-full h-full duration-300 group-hover:scale-105"
           height="253"
           :src="`${IMAGE_URL.w500}${actor.profile_path}`"

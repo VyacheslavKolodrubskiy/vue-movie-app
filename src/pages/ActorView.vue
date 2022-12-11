@@ -7,7 +7,7 @@
 
     <div class="flex lg:flex-col lg:space-y-10">
       <BaseImage
-        :alt="`${state.actor.name} picture`"
+        :alt="`${state.actor.name} photography`"
         class="mr-20 max-h-[720px] rounded-3xl"
         height="720"
         :src="state.actor.profile_path"
@@ -95,6 +95,8 @@
       </div>
     </div>
 
+    <BaseCarousel :slides="state.profiles" />
+
     <AppTitle>
       Other films with {{ state.actor.name }}
     </AppTitle>
@@ -119,21 +121,24 @@
 </template>
 
 <script setup lang="ts">
+import BaseCarousel from '../components/BaseCarousel.vue'
 import { useAxios } from '~/composables'
 import type { Movie } from '~/interface.movie'
-import type { Actor } from '~/interface.actor'
+import type { Actor, Profile } from '~/interface.actor'
 
 const { params } = useRoute()
 
 interface State {
   readMoreActivated: boolean
   movies: Movie[]
+  profiles: Profile[]
   actor: Actor | null
 }
 
 const state = reactive<State>({
   readMoreActivated: false,
   movies: [],
+  profiles: [],
   actor: null,
 })
 
@@ -142,12 +147,12 @@ const readMoreText = computed(() => {
 })
 
 const isReadMoreShown = computed(() => {
-  return state.actor && state.actor?.biography.length >= 500
+  return state.actor && state.actor?.biography?.length >= 500
 })
 
 const biography = computed(() => {
   return state.actor
-    && state.actor?.biography.length >= 500
+    && state.actor?.biography?.length >= 500
     && !state.readMoreActivated
     ? `${state.actor?.biography?.slice(0, 500)}...`
     : state.actor?.biography
@@ -167,5 +172,10 @@ const age = computed(() => {
 (async function fetchMovies() {
   const data = await useAxios(`/person/${params.id}/combined_credits`)
   state.movies = data.cast
+})();
+
+(async function fetchActorImages() {
+  const data = await useAxios(`/person/${params.id}/images`)
+  state.profiles = data.profiles
 })()
 </script>

@@ -9,7 +9,7 @@
     />
 
     <p class="text-[#ffad49]">
-      {{ count && count.toFixed(1) }}
+      {{ count?.toFixed(1) }}
     </p>
   </div>
 </template>

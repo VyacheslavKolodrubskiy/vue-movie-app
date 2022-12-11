@@ -26,7 +26,7 @@ interface Images {
   profiles: Profile[]
 }
 
-interface Profile {
+export interface Profile {
   aspect_ratio: number
   height: number
   iso_639_1?: any
