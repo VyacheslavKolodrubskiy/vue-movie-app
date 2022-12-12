@@ -19,7 +19,7 @@
     "vee-validate": "^4.7.3",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
-    "vue3-carousel": "0.2.8",
+    "vue3-carousel": "0.2.9",
     "yup": "^0.32.11"
   },
   "devDependencies": {
