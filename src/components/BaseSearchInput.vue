@@ -3,15 +3,12 @@
     class="flex items-center justify-between space-x-4 xxs:flex-col xxs:items-start xxs:space-y-4 xxs:space-x-0"
   >
     <div class="relative w-full">
-      <input
-        class="w-full rounded-[12px] border border-[#323B54] bg-transparent py-4 pl-14 pr-4 text-white outline-none placeholder:text-[#475069] focus:ring-2 focus:ring-accent/60"
-        :type="type"
-        :value="modelValue"
+      <BaseInput
+        :model-value="modelValue"
         v-bind="$attrs"
-        @input="
-          emit('update:modelValue', ($event.target as HTMLInputElement).value)
-        "
-      >
+        :type="type"
+        @update:model-value="emit('update:modelValue', $event)"
+      />
 
       <BaseIcon
         class="absolute top-4 left-5"
@@ -34,7 +31,7 @@ const props = withDefaults(
   }>(),
   {
     modelValue: '',
-    type: 'text',
+    type: 'search',
   },
 )
 
