@@ -10,7 +10,7 @@
         v-for="{ file_path } in slides"
         :key="file_path"
       >
-        <BaseImage
+        <ImageWithSkeleton
           alt="Photography"
           class="rounded-lg object-cover"
           height="400"
@@ -20,7 +20,7 @@
           <template #skeleton>
             <ImageSkeleton class="rounded-lg" />
           </template>
-        </BaseImage>
+        </ImageWithSkeleton>
       </Slide>
     </Carousel>
 
@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
-import BaseImage from './BaseImage.vue'
+import ImageWithSkeleton from './ImageWithSkeleton.vue'
 import type { Profile } from '~/interface.actor'
 import { IMAGE_URL } from '~/constants'
 

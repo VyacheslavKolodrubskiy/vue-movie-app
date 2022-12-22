@@ -26,7 +26,7 @@
       </p>
     </div>
 
-    <BaseImage
+    <ImageWithSkeleton
       :alt="`${state.movie.name} cover`"
       class="rounded-[40px]"
       height="480"
@@ -37,10 +37,10 @@
       <template #skeleton>
         <div class="aspect-video animate-pulse rounded-[40px] bg-gray-500" />
       </template>
-    </BaseImage>
+    </ImageWithSkeleton>
 
     <div class="flex lg:flex-col lg:space-y-10">
-      <BaseImage
+      <ImageWithSkeleton
         :alt="`${title} cover`"
         class="rounded-3xl max-h-[720px] lg:hidden mr-20"
         height="720"
@@ -56,7 +56,7 @@
             />
           </div>
         </template>
-      </BaseImage>
+      </ImageWithSkeleton>
 
       <div class="max-w-[480px] space-y-6 lg:max-w-full">
         <h2 class="text-2xl font-bold text-primary">

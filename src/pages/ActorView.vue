@@ -6,7 +6,7 @@
     <BackButton />
 
     <div class="flex lg:flex-col lg:space-y-10">
-      <BaseImage
+      <ImageWithSkeleton
         :alt="`${state.actor.name} photography`"
         class="mr-20 max-h-[720px] rounded-3xl"
         height="720"
@@ -22,7 +22,7 @@
             />
           </div>
         </template>
-      </BaseImage>
+      </ImageWithSkeleton>
 
       <div class="max-w-[480px] space-y-6 lg:max-w-full">
         <h2 class="text-2xl font-bold text-primary">

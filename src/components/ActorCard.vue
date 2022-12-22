@@ -9,7 +9,7 @@
   >
     <BaseCard>
       <div class="overflow-hidden rounded-lg">
-        <BaseImage
+        <ImageWithSkeleton
           :alt="`${actor.name} photography`"
           class="w-full h-full duration-300 group-hover:scale-105"
           height="253"
@@ -22,7 +22,7 @@
               width="168"
             />
           </template>
-        </BaseImage>
+        </ImageWithSkeleton>
       </div>
 
       <template #title>
