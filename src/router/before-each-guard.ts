@@ -2,7 +2,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { start } from 'nprogress'
 import type { Router } from 'vue-router'
 import { auth } from '~/firebase'
-import { Pages } from '~/enums'
+import { Pages } from '~/shared/enums'
 
 function getCurrentUser() {
   return new Promise((resolve, reject) => {

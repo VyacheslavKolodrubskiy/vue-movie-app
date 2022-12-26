@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { Pages } from '~/enums'
+import { Pages } from '~/shared/enums'
 import { auth } from '~/firebase'
 import { serverErrorHandler } from '~/utils'
 import { useNotification } from '~/composables'

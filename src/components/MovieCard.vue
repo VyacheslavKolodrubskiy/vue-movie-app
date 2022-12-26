@@ -34,10 +34,10 @@
 
 <script setup lang="ts">
 import ImageSkeleton from './ImageSkeleton.vue'
-import { MEDIA_TYPES } from '~/constants'
-import { Pages } from '~/enums'
+import { MEDIA_TYPES } from '~/shared/constants'
+import { Pages } from '~/shared/enums'
 import { useMovieFilters } from '~/stores'
-import type { Movie } from '~/interface.movie'
+import type { Movie } from '~/shared/interface.movie'
 
 const props = defineProps<{
   movie: Movie

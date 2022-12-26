@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { IMAGE_URL } from '~/constants'
-import type { ImageSizes } from '~/types'
+import { IMAGE_URL } from '~/shared/constants'
+import type { ImageSizes } from '~/shared/types'
 
 const props = withDefaults(defineProps<{
   src: string

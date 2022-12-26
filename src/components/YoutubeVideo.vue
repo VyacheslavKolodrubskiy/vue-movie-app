@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Movie } from '~/interface.movie'
+import type { Movie } from '~/shared/interface.movie'
 
 const props = defineProps<{
   movie: Movie

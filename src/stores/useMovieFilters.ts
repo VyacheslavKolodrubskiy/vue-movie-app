@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { Categories } from '~/types'
+import type { Categories } from '~/shared/types'
 
 interface State {
   searchQuery: string
@@ -45,4 +45,3 @@ export const useMovieFilters = defineStore('filters', {
     storage: sessionStorage,
   },
 })
-

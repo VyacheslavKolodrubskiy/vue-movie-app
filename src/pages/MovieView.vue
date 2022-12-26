@@ -129,10 +129,10 @@
 
 <script setup lang="ts">
 import { useAxios } from '~/composables'
-import { MEDIA_TYPES } from '~/constants'
-import { Pages } from '~/enums'
-import type { Actor } from '~/interface.actor'
-import type { Movie } from '~/interface.movie'
+import { MEDIA_TYPES } from '~/shared/constants'
+import { Pages } from '~/shared/enums'
+import type { Actor } from '~/shared/interface.actor'
+import type { Movie } from '~/shared/interface.movie'
 
 interface State {
   movie: Movie | null

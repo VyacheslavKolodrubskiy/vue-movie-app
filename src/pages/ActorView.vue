@@ -121,10 +121,9 @@
 </template>
 
 <script setup lang="ts">
-import BaseCarousel from '../components/BaseCarousel.vue'
 import { useAxios } from '~/composables'
-import type { Movie } from '~/interface.movie'
-import type { Actor, Profile } from '~/interface.actor'
+import type { Movie } from '~/shared/interface.movie'
+import type { Actor, Profile } from '~/shared/interface.actor'
 
 const { params } = useRoute()
 

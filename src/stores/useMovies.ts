@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { useMovieFilters } from './useMovieFilters'
 import { useAxios } from '~/composables'
-import { MEDIA_TYPES } from '~/constants'
-import type { Movie } from '~/interface.movie'
+import { MEDIA_TYPES } from '~/shared/constants'
+import type { Movie } from '~/shared/interface.movie'
 
 const movieFiltersStore = useMovieFilters()
 
@@ -16,9 +16,10 @@ export const useMovies = defineStore('movies', {
   }),
   actions: {
     async fetchCollection() {
-      const searchType = movieFiltersStore.currentCategory === 'All'
-        ? 'multi'
-        : MEDIA_TYPES[movieFiltersStore.currentCategory]
+      const searchType
+        = movieFiltersStore.currentCategory === 'All'
+          ? 'multi'
+          : MEDIA_TYPES[movieFiltersStore.currentCategory]
 
       const url = movieFiltersStore.searchQuery
         ? `/search/${searchType}?query=${movieFiltersStore.searchQuery}`

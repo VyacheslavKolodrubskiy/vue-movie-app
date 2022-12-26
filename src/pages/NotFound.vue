@@ -29,6 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import { Pages } from '~/enums'
+import { Pages } from '~/shared/enums'
 </script>
 

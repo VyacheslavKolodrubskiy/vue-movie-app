@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { useMovieFilters } from '~/stores/useMovieFilters'
-import { Pages } from '~/enums'
+import { Pages } from '~/shared/enums'
 import { auth } from '~/firebase'
 
 const router = useRouter()
