@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import { beforeEachGuard } from './before-each-guard'
 import { afterEachGuard } from './after-each-guard'
-import { Pages } from '~/shared/enums'
+import { Pages } from '~/shared'
 
 const routes: RouteRecordRaw[] = [
   {

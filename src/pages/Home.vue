@@ -48,9 +48,9 @@
 </template>
 
 <script setup lang="ts">
-import { CATEGORIES } from '~/shared/constants'
+import type { Categories } from '~/shared'
+import { CATEGORIES } from '~/shared'
 import { useMovieFilters, useMovies } from '~/stores'
-import type { Categories } from '~/shared/types'
 
 const moviesStore = useMovies()
 const movieFiltersStore = useMovieFilters()

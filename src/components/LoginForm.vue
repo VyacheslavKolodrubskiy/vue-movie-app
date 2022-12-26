@@ -70,7 +70,7 @@
 <script setup lang="ts">
 import { object, string } from 'yup'
 import { useField, useForm } from 'vee-validate'
-import { PASSWORD_MIN_LENGTH } from '~/shared/constants'
+import { PASSWORD_MIN_LENGTH } from '~/shared'
 
 const emit = defineEmits(['submit'])
 

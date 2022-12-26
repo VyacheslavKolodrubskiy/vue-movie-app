@@ -44,9 +44,8 @@
 
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
-import ImageWithSkeleton from './ImageWithSkeleton.vue'
-import type { Profile } from '~/shared/interface.actor'
-import { IMAGE_URL } from '~/shared/constants'
+import type { Profile } from '~/shared'
+import { IMAGE_URL } from '~/shared'
 
 type CarouselType = InstanceType<typeof Carousel>
 

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { Categories } from '~/shared/types'
+import type { Categories } from '~/shared'
 
 interface State {
   searchQuery: string

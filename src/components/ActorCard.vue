@@ -36,9 +36,8 @@
 </template>
 
 <script setup lang="ts">
-import { IMAGE_URL } from '~/shared/constants'
-import { Pages } from '~/shared/enums'
-import type { Actor } from '~/shared/interface.actor'
+import type { Actor } from '~/shared'
+import { IMAGE_URL, Pages } from '~/shared'
 
 const props = defineProps<{
   actor: Actor

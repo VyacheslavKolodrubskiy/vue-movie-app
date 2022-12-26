@@ -33,11 +33,9 @@
 </template>
 
 <script setup lang="ts">
-import ImageSkeleton from './ImageSkeleton.vue'
-import { MEDIA_TYPES } from '~/shared/constants'
-import { Pages } from '~/shared/enums'
 import { useMovieFilters } from '~/stores'
-import type { Movie } from '~/shared/interface.movie'
+import type { Movie } from '~/shared'
+import { MEDIA_TYPES, Pages } from '~/shared'
 
 const props = defineProps<{
   movie: Movie

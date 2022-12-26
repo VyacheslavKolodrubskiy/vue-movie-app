@@ -122,8 +122,7 @@
 
 <script setup lang="ts">
 import { useAxios } from '~/composables'
-import type { Movie } from '~/shared/interface.movie'
-import type { Actor, Profile } from '~/shared/interface.actor'
+import type { Actor, Movie, Profile } from '~/shared'
 
 const { params } = useRoute()
 
