@@ -16,11 +16,7 @@
           height="400"
           :src="`${IMAGE_URL.original}${file_path}`"
           width="268"
-        >
-          <template #skeleton>
-            <ImageSkeleton class="rounded-lg" />
-          </template>
-        </ImageWithSkeleton>
+        />
       </Slide>
     </Carousel>
 

@@ -15,14 +15,7 @@
           height="253"
           :src="`${IMAGE_URL.w500}${actor.profile_path}`"
           width="168"
-        >
-          <template #skeleton>
-            <ImageSkeleton
-              height="253"
-              width="168"
-            />
-          </template>
-        </ImageWithSkeleton>
+        />
       </div>
 
       <template #title>

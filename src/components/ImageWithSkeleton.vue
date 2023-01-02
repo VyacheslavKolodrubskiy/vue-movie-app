@@ -1,6 +1,6 @@
 <template>
   <img
-    v-show="imageUploaded && src"
+    v-show="imageUploaded"
     v-bind="$attrs"
     :alt="alt"
     class="object-cover"
@@ -8,10 +8,13 @@
     @load="imageUploaded = true"
   >
 
-  <slot
-    v-if="!imageUploaded || !src && $slots.skeleton"
-    name="skeleton"
-  />
+  <img
+    v-if="!imageUploaded"
+    v-bind="$attrs"
+    alt="Image Skeleton"
+    class="w-full animate-pulse"
+    src="../assets/images/image-skeleton.png"
+  >
 </template>
 
 <script setup lang="ts">

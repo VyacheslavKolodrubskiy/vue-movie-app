@@ -15,14 +15,7 @@
           height="400"
           :src="movie.poster_path"
           width="266"
-        >
-          <template #skeleton>
-            <ImageSkeleton
-              height="400"
-              width="266"
-            />
-          </template>
-        </ImageWithSkeleton>
+        />
       </div>
 
       <template #title>

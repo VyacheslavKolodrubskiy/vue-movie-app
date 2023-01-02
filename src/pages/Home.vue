@@ -33,7 +33,7 @@
         />
       </template>
 
-      <MovieCardSkeleton
+      <CardSkeleton
         v-else
         :quantity="20"
       />

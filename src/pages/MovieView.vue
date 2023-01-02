@@ -28,35 +28,21 @@
 
     <ImageWithSkeleton
       :alt="`${state.movie.name} cover`"
-      class="rounded-[40px]"
+      class="rounded-[40px] aspect-video"
       height="480"
       image-size="original"
       :src="state.movie.backdrop_path"
       width="1200"
-    >
-      <template #skeleton>
-        <div class="aspect-video animate-pulse rounded-[40px] bg-gray-500" />
-      </template>
-    </ImageWithSkeleton>
+    />
 
     <div class="flex lg:flex-col lg:space-y-10">
       <ImageWithSkeleton
         :alt="`${title} cover`"
-        class="rounded-3xl max-h-[720px] lg:hidden mr-20"
+        class="rounded-3xl max-h-[720px] lg:hidden mr-20 max-w-[480px]"
         height="720"
         :src="state.movie.poster_path"
         width="480"
-      >
-        <template #skeleton>
-          <div class="mr-20 lg:hidden max-w-[480px] w-full">
-            <ImageSkeleton
-              class="rounded-3xl"
-              height="720"
-              width="480"
-            />
-          </div>
-        </template>
-      </ImageWithSkeleton>
+      />
 
       <div class="max-w-[480px] space-y-6 lg:max-w-full">
         <h2 class="text-2xl font-bold text-primary">
@@ -88,12 +74,8 @@
     />
 
     <template v-if="state.actors.length">
-      <AppTitle>
-        Actors
-      </AppTitle>
-      <div
-        class="grid grid-cols-6 gap-3 md:grid-cols-2 lg:grid-cols-4"
-      >
+      <AppTitle> Actors </AppTitle>
+      <div class="grid grid-cols-6 gap-3 md:grid-cols-2 lg:grid-cols-4">
         <ActorCard
           v-for="(actor, index) in state.actors"
           :key="index"
@@ -102,13 +84,9 @@
       </div>
     </template>
 
-    <AppTitle>
-      Similar {{ type }}
-    </AppTitle>
+    <AppTitle> Similar {{ type }} </AppTitle>
 
-    <div
-      class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3"
-    >
+    <div class="grid grid-cols-4 gap-3 md:grid-cols-2 lg:grid-cols-3">
       <template v-if="state.movies.length">
         <MovieCard
           v-for="movie in state.movies"
@@ -117,14 +95,12 @@
         />
       </template>
 
-      <MovieCardSkeleton
+      <CardSkeleton
         v-else
         :quantity="20"
       />
     </div>
   </div>
-
-  <MovieViewSkeleton v-else />
 </template>
 
 <script setup lang="ts">
@@ -143,7 +119,6 @@ const state = reactive<State>({
   movie: null,
   movies: [],
   actors: [],
-
 })
 
 const genres = computed(() => {

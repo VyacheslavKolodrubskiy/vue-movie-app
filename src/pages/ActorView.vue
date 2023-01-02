@@ -8,21 +8,11 @@
     <div class="flex lg:flex-col lg:space-y-10">
       <ImageWithSkeleton
         :alt="`${state.actor.name} photography`"
-        class="mr-20 max-h-[720px] rounded-3xl"
+        class="mr-20 max-h-[720px] max-w-[480px] rounded-3xl"
         height="720"
         :src="state.actor.profile_path"
         width="480"
-      >
-        <template #skeleton>
-          <div class="max-w-[480px] w-full mr-20">
-            <ImageSkeleton
-              class="rounded-3xl"
-              height="720"
-              width="480"
-            />
-          </div>
-        </template>
-      </ImageWithSkeleton>
+      />
 
       <div class="max-w-[480px] space-y-6 lg:max-w-full">
         <h2 class="text-2xl font-bold text-primary">
@@ -110,14 +100,12 @@
         />
       </template>
 
-      <MovieCardSkeleton
+      <CardSkeleton
         v-else
         :quantity="20"
       />
     </div>
   </div>
-
-  <ActorViewSkeleton v-else />
 </template>
 
 <script setup lang="ts">
