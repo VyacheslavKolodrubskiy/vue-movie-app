@@ -21,4 +21,3 @@ const icon = computed(() => {
   return new URL(`../assets/images/icons/${props.name}.svg`, import.meta.url).href
 })
 </script>
-

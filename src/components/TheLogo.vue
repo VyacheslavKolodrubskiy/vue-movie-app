@@ -11,4 +11,3 @@
 <script setup lang="ts">
 import { Pages } from '~/shared'
 </script>
-
