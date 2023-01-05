@@ -38,7 +38,6 @@ const props = withDefaults(
 const emit = defineEmits(['update:modelValue'])
 </script>
 
-<!-- https://forum.vuejs.org/t/vue3-no-inheritattrs-false-in-script-setup/122812 -->
 <script lang="ts">
 export default {
   inheritAttrs: false,

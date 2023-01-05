@@ -3,7 +3,6 @@
     :id="label"
     class=""
     v-bind="$attrs"
-    name=""
     type="radio"
     :value="modelValue"
     @change="emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
@@ -22,4 +21,3 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:modelValue'])
 </script>
-

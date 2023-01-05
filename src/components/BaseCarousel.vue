@@ -12,34 +12,22 @@
       >
         <ImageWithSkeleton
           alt="Photography"
-          class="rounded-lg object-cover"
+          class="rounded-lg"
           height="400"
           :src="`${IMAGE_URL.original}${file_path}`"
           width="268"
         />
       </Slide>
+
+      <template #addons>
+        <Navigation />
+      </template>
     </Carousel>
-
-    <div class="space-x-2">
-      <CarouselButton @click="moveSlide('prev')">
-        <BaseIcon
-          class="group-hover:opacity-50 duration-300 w-4 h-4"
-          name="chevron-left"
-        />
-      </CarouselButton>
-
-      <CarouselButton @click="moveSlide('next')">
-        <BaseIcon
-          class="group-hover:opacity-50 duration-300 w-4 h-4"
-          name="chevron-right"
-        />
-      </CarouselButton>
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Carousel, Slide } from 'vue3-carousel'
+import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import type { Profile } from '~/shared'
 import { IMAGE_URL } from '~/shared'
 
@@ -85,7 +73,6 @@ function moveSlide(method: 'prev' | 'next') {
 }
 </script>
 
-<!-- https://forum.vuejs.org/t/vue3-no-inheritattrs-false-in-script-setup/122812 -->
 <script lang="ts">
 export default {
   inheritAttrs: false,
@@ -96,5 +83,9 @@ export default {
 @import 'vue3-carousel/dist/carousel.css';
 .carousel__slide {
   padding: 10px;
+}
+
+.carousel__icon{
+ fill: #fff;
 }
 </style>

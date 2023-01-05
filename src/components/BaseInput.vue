@@ -18,7 +18,6 @@ const props = withDefaults(
     type?: InputHTMLAttributes['type']
   }>(),
   {
-    modelValue: '',
     type: 'text',
   },
 )
