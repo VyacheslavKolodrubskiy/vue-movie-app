@@ -85,7 +85,18 @@
       </div>
     </div>
 
-    <BaseCarousel :slides="state.profiles" />
+    <BaseCarousel
+      v-slot="{ slide }"
+      :slides="state.profiles"
+    >
+      <ImageWithSkeleton
+        alt="Photography"
+        class="rounded-lg"
+        height="400"
+        :src="`${IMAGE_URL.original}${slide.file_path}`"
+        width="268"
+      />
+    </BaseCarousel>
 
     <AppTitle>
       Other films with {{ state.actor.name }}
@@ -111,6 +122,7 @@
 <script setup lang="ts">
 import { useAxios } from '~/composables'
 import type { Actor, Movie, Profile } from '~/shared'
+import { IMAGE_URL } from '~/shared'
 
 const { params } = useRoute()
 

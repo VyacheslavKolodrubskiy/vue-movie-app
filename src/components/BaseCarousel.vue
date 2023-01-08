@@ -2,21 +2,14 @@
   <div v-if="slides.length">
     <Carousel
       v-bind="$attrs"
-      ref="carouselRef"
       :breakpoints="state.breakpoints"
       :settings="state.settings"
     >
       <Slide
-        v-for="{ file_path } in slides"
-        :key="file_path"
+        v-for="(slide, index) in slides"
+        :key="index"
       >
-        <ImageWithSkeleton
-          alt="Photography"
-          class="rounded-lg"
-          height="400"
-          :src="`${IMAGE_URL.original}${file_path}`"
-          width="268"
-        />
+        <slot :slide="slide" />
       </Slide>
 
       <template #addons>
@@ -28,13 +21,11 @@
 
 <script setup lang="ts">
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
-import type { Profile } from '~/shared'
-import { IMAGE_URL } from '~/shared'
 
 type CarouselType = InstanceType<typeof Carousel>
 
 const props = defineProps<{
-  slides: Profile[]
+  slides: any[]
   settings?: CarouselType['settings']
   breakpoints?: CarouselType['breakpoints']
 }>()
@@ -65,12 +56,6 @@ const state = reactive({
 
   },
 })
-
-const carouselRef = ref<any | null>(null)
-
-function moveSlide(method: 'prev' | 'next') {
-  carouselRef.value?.[method]()
-}
 </script>
 
 <script lang="ts">
